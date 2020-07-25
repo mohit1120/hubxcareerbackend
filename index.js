@@ -3,7 +3,7 @@ const path = require('path');
 const ejs = require('ejs');
 const bodyparser = require('body-parser');
 
-require('dotenv').config()
+//require('dotenv').config()
 const port = process.env.port || 8080;
 
 //To create server
