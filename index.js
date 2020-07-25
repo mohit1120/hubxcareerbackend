@@ -31,7 +31,8 @@ const Dashboard = require('./router/dashboard/dashboard');
 app.use('/', Dashboard);
 
 app.get('/', (req, res)=>{
-    res.send("Hello profile");
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ a: 1 }));
 });
 
 app.listen(process.env.PORT || 3000);
