@@ -32,6 +32,8 @@ const Dashboard = require('./router/dashboard/dashboard');
 app.use('/', Dashboard);
 
 app.get('/', (req, res)=>{
+     res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ a: 1 }));
 });
