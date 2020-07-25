@@ -27,7 +27,7 @@ try {
 
         if(user && user.length > 0) {
             console.log("User alreday exist:", user);
-            return res.status(409).json({
+            return res.status(200).json({
                 message: "User already exist"
             })
         } else {
