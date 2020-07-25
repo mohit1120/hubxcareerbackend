@@ -16,7 +16,7 @@ connectDB();
 
 //setting Middleware bodyparser
 app.use(bodyparser.urlencoded({extended:true}));
-app.use(bodyparser.json());
+app.use(express.json());
 
 //setting static folders 
 app.use(express.static(__dirname + '/public'));
