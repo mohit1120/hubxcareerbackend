@@ -19,6 +19,12 @@ router.post('/signup', (req, res)=>{
     User.find({email: req.body.email})
     .exec()
     .then(user =>{
+try {
+    req.body = JSON.parse(req.body); 
+} catch (e) {
+   console.log(req.body);
+}
+
         if(user && user.length > 0) {
             console.log("User alreday exist:", user);
             return res.status(409).json({
