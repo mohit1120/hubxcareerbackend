@@ -24,6 +24,7 @@ router.post('/signup', (req, res)=>{
                 message: "User already exist"
             })
         } else {
+console.log(JSON.stringify(req));
           console.log(req.body.password);
           console.log(req.body.email);
             bcrypt.hash(req.body.password, 10, (err, hash)=>{
