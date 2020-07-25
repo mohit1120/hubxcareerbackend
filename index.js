@@ -26,9 +26,7 @@ app.set('view engine', 'ejs');
 
 //for actual routes
 const User = require('./router/user/user',);
-app.use('/', User);
-const Dashboard = require('./router/dashboard/dashboard');
-app.use('/', Dashboard);
+
 
 app.get('/', (req, res)=>{
     res.send("Hello profile");
