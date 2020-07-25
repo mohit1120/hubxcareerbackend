@@ -15,8 +15,8 @@ const User = require('../../model/user/user');
 
 //Signup
 router.post('/signup', (req, res)=>{
-const data=JSON.parse(req.body);
-    User.find({email: data.email})
+console.log(req.body);
+    User.find({email: req.body.email})
     .exec()
     .then(user =>{
         if(user && user.length > 0) {
@@ -26,9 +26,9 @@ const data=JSON.parse(req.body);
             })
         } else {
 
-          console.log(data.password);
-          console.log(data.email);
-            bcrypt.hash(data.password, 10, (err, hash)=>{
+          console.log(req.body.password);
+          console.log(req.body.email);
+            bcrypt.hash(req.body.password, 10, (err, hash)=>{
                 if(err) {
                     return res.status(500).json({
                         error:"123"
@@ -36,7 +36,7 @@ const data=JSON.parse(req.body);
                 } else {
                     const user = new User({
                         _id: new mongoose.Types.ObjectId(),
-                        email: data.email,
+                        email: req.body.email,
                         password: hash 
                     })
                     user
