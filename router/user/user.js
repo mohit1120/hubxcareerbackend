@@ -128,5 +128,21 @@ router.post('/remove', (req, res)=>{
     })
 })
 
+router.get('/users', (req, res)=>{
+    User.findAll
+    .exec()
+    .then(user =>{
+        
+        return res.json({
+            message: "User exist",
+User:user
+
+        })
+    })
+    .catch(err =>{
+        error: err
+    })
+})
+
 
 module.exports = router;
