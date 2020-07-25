@@ -15,7 +15,7 @@ const User = require('../../model/user/user');
 
 //Signup
 router.post('/signup', (req, res)=>{
-req.body=JSON.parse(req.body);
+
     User.find({email: req.body.email})
     .exec()
     .then(user =>{
