@@ -5,10 +5,10 @@ const bodyparser = require('body-parser');
 
 //require('dotenv').config()
 
-
+const cors=require('cors');
 //To create server
 const app = express();
-
+app.use(cors());
 //for db connection
 const connectDB = require('./config');
 connectDB();
