@@ -3,12 +3,12 @@ const path = require('path');
 const ejs = require('ejs');
 const bodyparser = require('body-parser');
 
-//require('dotenv').config()
+require('dotenv').config()
 
 
 //To create server
 const app = express();
-var port = app.listen(process.env.PORT || 3000);
+
 //for db connection
 const connectDB = require('./config');
 connectDB();
@@ -32,7 +32,5 @@ app.get('/', (req, res)=>{
     res.send("Hello profile");
 });
 
-app.listen(port, ()=>{
-    console.log("Server is running at port no.", port);
-})
+const port = app.listen(process.env.PORT || 3000);
 
