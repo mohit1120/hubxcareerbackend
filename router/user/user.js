@@ -15,7 +15,7 @@ const User = require('../../model/user/user');
 
 //Signup
 router.post('/signup', (req, res)=>{
-console.log(req.body);
+req.body=JSON.parse(req.body);
     User.find({email: req.body.email})
     .exec()
     .then(user =>{
@@ -26,8 +26,7 @@ console.log(req.body);
             })
         } else {
 
-          console.log(req.body.password);
-          console.log(req.body.email);
+          
             bcrypt.hash(req.body.password, 10, (err, hash)=>{
                 if(err) {
                     return res.status(500).json({
