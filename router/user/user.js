@@ -129,13 +129,13 @@ router.post('/remove', (req, res)=>{
 })
 
 router.get('/users', (req, res)=>{
-    User.findAll
+    User.find({})
     .exec()
     .then(user =>{
         
         return res.json({
             message: "User exist",
-User:user
+           User:user
 
         })
     })
