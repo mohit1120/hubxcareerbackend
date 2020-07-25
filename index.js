@@ -3,7 +3,7 @@ const path = require('path');
 const ejs = require('ejs');
 const bodyparser = require('body-parser');
 
-require('dotenv').config()
+//require('dotenv').config()
 
 
 //To create server
@@ -26,11 +26,13 @@ app.set('view engine', 'ejs');
 
 //for actual routes
 const User = require('./router/user/user',);
-
+app.use('/', User);
+const Dashboard = require('./router/dashboard/dashboard);
+app.use('/', Dashboard);
 
 app.get('/', (req, res)=>{
     res.send("Hello profile");
 });
 
-const port = app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000);
 
