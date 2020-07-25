@@ -9,14 +9,14 @@ const cors=require('cors');
 //To create server
 const app = express();
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+
 //for db connection
 const connectDB = require('./config');
 connectDB();
 
 //setting Middleware bodyparser
-;
+app.use(bodyparser.urlencoded({extended:true}));
+app.use(bodyparser.json());
 
 //setting static folders 
 app.use(express.static(__dirname + '/public'));
