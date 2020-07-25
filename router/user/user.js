@@ -27,7 +27,7 @@ router.post('/signup', (req, res)=>{
             bcrypt.hash(req.body.password, 10, (err, hash)=>{
                 if(err) {
                     return res.status(500).json({
-                        error:err
+                        error:"123"
                     });
                 } else {
                     const user = new User({
@@ -46,7 +46,7 @@ router.post('/signup', (req, res)=>{
                         .catch(err =>{
                             console.log("error occured");
                             res.status(500).json({
-                                error: err
+                                error: "1234"
                             })
                         });
                 }
