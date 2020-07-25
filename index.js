@@ -25,9 +25,9 @@ app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
 //for actual routes
-const User = require('./router/user/user',);
+const User = require('./router/user/user');
 app.use('/', User);
-const Dashboard = require('./router/dashboard/dashboard);
+const Dashboard = require('./router/dashboard/dashboard');
 app.use('/', Dashboard);
 
 app.get('/', (req, res)=>{
