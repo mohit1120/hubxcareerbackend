@@ -4,11 +4,11 @@ const ejs = require('ejs');
 const bodyparser = require('body-parser');
 
 //require('dotenv').config()
-const port = process.env.port || 8080;
+
 
 //To create server
 const app = express();
-
+var port = app.listen(process.env.PORT || 3000);
 //for db connection
 const connectDB = require('./config');
 connectDB();
