@@ -39,7 +39,7 @@ router.post('/addevent', (req, res)=>{
 
 //To get all events data
 router.get('/eventlist', (req, res)=>{
-    Event.find()
+    Event.find({})
     .exec()
     .then(events =>{
         console.log("Details of an event is:", event);
