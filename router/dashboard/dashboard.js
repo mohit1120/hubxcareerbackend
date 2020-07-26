@@ -40,8 +40,11 @@ try {
         description: req.body.description,
         created_by: req.body.email
     })
-    event
-    .save()
+
+
+
+    
+    event.save()
     .then(event=>{
         console.log("Inserted event is:", event);
         return res.status(200).json({
@@ -56,7 +59,18 @@ try {
             success: false
         })
     });
+
+
 }
+})
+.catch(err =>{
+    console.log("Error occured");
+    res.status(500).json({
+        error: err,
+        message: "Something went wrong"
+    })
+})
+
 })
 
 

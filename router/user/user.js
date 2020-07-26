@@ -104,7 +104,7 @@ router.post('/login', (req, res)=>{
                     },
                      jwt_key,
                      {
-                         expiresIn: "1h"
+                         expiresIn: "4h"
                      } 
                     );
                     console.log("Logged In user is:", token);
