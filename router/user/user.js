@@ -49,10 +49,11 @@ try {
                         .save()
                         .then(result =>{
                             console.log("User created successfully:", result),
- res.header("Access-Control-Allow-Origin", "*"),
-  res.header("Access-Control-Allow-Headers", "X-Requested-With"),
+                            res.header("Access-Control-Allow-Origin", "*"),
+                            res.header("Access-Control-Allow-Headers", "X-Requested-With"),
                             res.status(200).json({
-                                meassage: "User created successfully"
+                                meassage: "User created successfully",
+                                success: true
                             })
                         })
                         .catch(err =>{
