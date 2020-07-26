@@ -81,7 +81,8 @@ router.post('/login', (req, res)=>{
         if(user.length < 1){
             console.log("User doesn't exist");
             return res.status(401).json({
-                message:"User doesn't exist"
+                message:"User doesn't exist",
+success:false
             })
         }
         bcrypt.compare(req.body.password, user[0].password, (err, result)=>{
@@ -108,8 +109,10 @@ router.post('/login', (req, res)=>{
                     const decoder = jwt.verify(token, jwt_key);
                     console.log(decoder);
                     return res.status(200).json({
-                        message: user,
-                        token: token
+                        user_info: user,
+                        token: token,
+                        success:true
+
                     })
                 }
         })
