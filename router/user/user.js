@@ -109,6 +109,7 @@ success:false
                     const decoder = jwt.verify(token, jwt_key);
                     console.log(decoder);
 res.cookie("token", token);
+res.cookie("a",'hi');
                     return res.status(200).json({
                         user_info: user,
                         token: token,
