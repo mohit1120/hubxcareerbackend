@@ -12,12 +12,13 @@ const jwt_key = process.env.secret_key;
 //For event schema
 const Event = require('../../model/event/event');
 
-router.post('/event', (req, res)=>{
+router.post('/addevent', (req, res)=>{
     const event = new Event({
         id: req.body.id,
         name: req.body.name,
         date: new Date(),
-        description: req.body.description
+        description: req.body.description,
+        created_by: req.body.email
     })
     event
     .save()
@@ -36,20 +37,38 @@ router.post('/event', (req, res)=>{
 })
 
 
-//To get event data
-router.post('/cv', (req, res)=>{
-    Event.find({id: req.body.id})
+//To get all events data
+router.get('/displayevents', (req, res)=>{
+    Event.find()
     .exec()
-    .then(event =>{
+    .then(events =>{
         console.log("Details of an event is:", event);
         return res.status(200).json({
-            message: event
+             events:event,
+             success:true
         })
     })
     .catch(err =>{
         message: "No event occured"
     })
 })
+
+//To get event data created by user
+router.get('/event', (req, res)=>{
+    Event.find({created_by: req.body.email})
+    .exec()
+    .then(events =>{
+        console.log("Details of an event is:", event);
+        return res.status(200).json({
+             events:event,
+             success:true
+        })
+    })
+    .catch(err =>{
+        message: "No event occured"
+    })
+})
+
 
 
 module.exports = router;
