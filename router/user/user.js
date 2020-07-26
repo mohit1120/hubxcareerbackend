@@ -86,14 +86,14 @@ router.post('/login', (req, res)=>{
             console.log("User doesn't exist");
             return res.status(401).json({
                 message:"User doesn't exist",
-success:false
+                success:false
             })
         }
         bcrypt.compare(req.body.password, user[0].password, (err, result)=>{
                 if(err){
-                    console.log("User doesn't exist");
+                    console.log("Incorrect Password");
                     return res.status(401).json({
-                        message:"User doesn't exist"
+                        message:"Incorrect password"
                     }) 
                 }
                 if(result){
@@ -112,8 +112,8 @@ success:false
                     console.log("Token id is:", token_id);
                     const decoder = jwt.verify(token, jwt_key);
                     console.log(decoder);
-res.cookie("token", token);
-res.cookie("a",'hi');
+                    res.cookie("token", token);
+                    res.cookie("a",'hi');
                     return res.status(200).json({
                         user_info: user,
                         token: token,
