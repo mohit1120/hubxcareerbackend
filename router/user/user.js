@@ -93,7 +93,8 @@ router.post('/login', (req, res)=>{
                 if(err){
                     console.log("Incorrect Password");
                     return res.status(401).json({
-                        message:"Incorrect password"
+                        message:"Incorrect password",
+                        success:false
                     }) 
                 }
                 if(result){
