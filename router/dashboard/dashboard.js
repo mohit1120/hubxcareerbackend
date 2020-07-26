@@ -42,9 +42,9 @@ router.get('/eventlist', (req, res)=>{
     Event.find({})
     .exec()
     .then(events =>{
-        console.log("Details of an event is:", event);
+        console.log("Details of an event is:", events);
         return res.status(200).json({
-             events:event,
+             events:events,
              success:true
         })
     })
@@ -58,9 +58,9 @@ router.get('/event', (req, res)=>{
     Event.find({created_by: req.body.email})
     .exec()
     .then(events =>{
-        console.log("Details of an event is:", event);
+        console.log("Details of an event is:", events);
         return res.status(200).json({
-             events:event,
+             events:events,
              success:true
         })
     })
