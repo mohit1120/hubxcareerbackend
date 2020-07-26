@@ -55,7 +55,7 @@ router.get('/eventlist', (req, res)=>{
 
 //To get event data created by user
 router.get('/event', (req, res)=>{
-    Event.find({created_by: req.body.email})
+    Event.find({created_by: req.params.email})
     .exec()
     .then(events =>{
         console.log("Details of an event is:", events);
