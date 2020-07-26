@@ -108,6 +108,7 @@ success:false
                     console.log("Token id is:", token_id);
                     const decoder = jwt.verify(token, jwt_key);
                     console.log(decoder);
+res.cookie("token", token);
                     return res.status(200).json({
                         user_info: user,
                         token: token,
