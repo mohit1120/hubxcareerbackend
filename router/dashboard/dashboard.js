@@ -13,6 +13,26 @@ const jwt_key = process.env.secret_key;
 const Event = require('../../model/event/event');
 
 router.post('/addevent', (req, res)=>{
+
+
+    Event.find({id: req.body.id})
+    .exec()
+    .then(event =>{
+try {
+    req.body = JSON.parse(req.body); 
+} catch (e) {
+   console.log(req.body);
+}
+
+        if(event && event.length > 0) {
+            console.log("Event alreday exist:", user);
+            return res.status(200).json({
+                message: "Event already exist",
+                success: true
+            })
+
+        } else{
+
     const event = new Event({
         id: req.body.id,
         name: req.body.name,
@@ -25,15 +45,17 @@ router.post('/addevent', (req, res)=>{
     .then(event=>{
         console.log("Inserted event is:", event);
         return res.status(200).json({
-            message: event
+            message: "",
+            success: true
         })
     })
     .catch(err=>{
         console.log(err);
         return res.status(500).json({
-            message: err
+            message: "Something went wrong"
         })
     });
+}
 })
 
 
