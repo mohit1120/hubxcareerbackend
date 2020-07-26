@@ -118,7 +118,8 @@ router.post('/login', (req, res)=>{
                     return res.status(200).json({
                         user_info: user,
                         token: token,
-                        success:true
+                        success:true,
+                        message: ""
 
                     })
                 }
@@ -127,7 +128,7 @@ router.post('/login', (req, res)=>{
     .catch(err =>{
         console.log(err);
         return res.status(500).json({
-            message: err
+            message: "something went wrong"
         })
     })
 })
