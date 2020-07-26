@@ -28,7 +28,7 @@ try {
             console.log("Event alreday exist:", user);
             return res.status(200).json({
                 message: "Event already exist",
-                success: true
+                success: false
             })
 
         } else{
@@ -52,7 +52,8 @@ try {
     .catch(err=>{
         console.log(err);
         return res.status(500).json({
-            message: "Something went wrong"
+            message: "Something went wrong",
+            success: false
         })
     });
 }
