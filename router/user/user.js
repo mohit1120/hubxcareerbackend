@@ -29,7 +29,7 @@ try {
             console.log("User alreday exist:", user);
             return res.status(200).json({
                 message: "User already exist",
-                success:false
+                success: true
             })
         } else {
 
@@ -37,7 +37,7 @@ try {
             bcrypt.hash(req.body.password, 10, (err, hash)=>{
                 if(err) {
                     return res.status(500).json({
-                        error:"123"
+                        error:"error occured"
                     });
                 } else {
                     const user = new User({
@@ -53,14 +53,14 @@ try {
                             res.header("Access-Control-Allow-Origin", "*"),
                             res.header("Access-Control-Allow-Headers", "X-Requested-With"),
                             res.status(200).json({
-                                meassage: "User created successfully",
+                                meassage: "",
                                 success: true
                             })
                         })
                         .catch(err =>{
                             console.log("error occured");
                             res.status(500).json({
-                                error: "1234"
+                                message: "something went wrong"
                             })
                         });
                 }
@@ -70,7 +70,8 @@ try {
     .catch(err =>{
         console.log("Error occured");
         res.status(500).json({
-            error: err
+            error: err,
+            message: "Something went wrong"
         })
     })
    
