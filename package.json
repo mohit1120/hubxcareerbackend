@@ -20,7 +20,7 @@
     "jsonwebtoken": "^8.5.1",
     "localStorage": "^1.0.4",
     "mongoose": "^5.9.25",
-    "nodemon": "^2.0.4",
+    "nodemon": "^2.0.20",
     "path": "^0.12.7"
   }
 }
